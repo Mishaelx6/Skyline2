@@ -35,7 +35,7 @@ export default function InfoSection() {
 
           <div className="relative group overflow-hidden rounded-lg shadow-lg">
             <img
-              src="/images/student.jpg"
+              src="/images/student.png"
               alt="For Students"
               className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -70,21 +70,17 @@ export default function InfoSection() {
             </a>
           </div>
           <div className="mt-8 md:mt-0 md:w-1/2 relative">
-            <img
-              src="/images/classroom.jpg"
-              alt="Classroom video"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <button className="absolute inset-0 flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-white bg-orange-500 rounded-full p-4 opacity-90 hover:opacity-100 transition"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
+            {/* YouTube embed - replace videoId with the ID of your video */}
+            <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                className="w-full h-full"
+                src="https://youtu.be/b4ba60j_4o8?si=daqbD-05gAQox_yJ"
+                title="YouTube video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>

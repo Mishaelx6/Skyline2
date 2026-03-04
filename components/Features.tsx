@@ -6,11 +6,11 @@ export default function Features() {
         <p className="text-center text-sm text-gray-500 mb-4">
           Trusted by 5,000+ Companies Worldwide
         </p>
-        <div className="flex justify-center items-center space-x-6 mb-12 flex-wrap">
+        <div className="flex flex-wrap justify-center items-center gap-6 mb-12">
           {["Google", "Netflix", "Airbnb", "Amazon", "Facebook", "Grab"].map((name) => (
             <div
               key={name}
-              className="h-8 w-24 bg-gray-200 flex items-center justify-center rounded-md text-xs font-medium text-gray-500 opacity-60"
+              className="flex-shrink-0 h-8 px-4 bg-gray-200 flex items-center justify-center rounded-md text-xs font-medium text-gray-500 opacity-60"
             >
               {name}
             </div>
