@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => {
@@ -18,13 +21,13 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-20 flex items-center justify-between p-6 transition-colors duration-300 ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
+        scrolled || !isHome ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
       {/* logo */}
       <Link
         href="/"
-        className={`text-2xl font-bold ${scrolled ? "text-gray-800" : "text-white"}`}
+        className={`text-2xl font-bold ${scrolled || !isHome ? "text-gray-800" : "text-white"}`}
       >
         Skilline
       </Link>
@@ -32,7 +35,7 @@ export default function Navbar() {
       {/* desktop links */}
       <ul
         className={`hidden md:flex space-x-8 ${
-          scrolled ? "text-gray-800" : "text-white"
+          scrolled || !isHome ? "text-gray-800" : "text-white"
         }`}
       >
         <li>
@@ -51,7 +54,7 @@ export default function Navbar() {
 
       {/* mobile hamburger */}
       <button
-        className={`md:hidden focus:outline-none ${scrolled ? "text-gray-800" : "text-white"}`}
+        className={`md:hidden focus:outline-none ${scrolled || !isHome ? "text-gray-800" : "text-white"}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle navigation"
       >
@@ -85,7 +88,7 @@ export default function Navbar() {
         <Link
           href="/login"
           className={`rounded-full border px-4 py-2 transition ${
-            scrolled ?
+            scrolled || !isHome ?
               "border-gray-800 text-gray-800 hover:bg-gray-100" :
               "border-white text-white hover:bg-white hover:text-gray-800"
           }`}
