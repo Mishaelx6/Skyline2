@@ -30,7 +30,7 @@ export default function Features() {
 
         {/* feature cards */}
         <div className="grid gap-8 md:grid-cols-3">
-          <div className="p-6 bg-white rounded-lg shadow-lg text-center">
+          <div className="p-6 bg-white rounded-lg shadow-lg text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
             <div className="w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
               {/* icon placeholder */}
               <svg
@@ -55,7 +55,7 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="p-6 bg-white rounded-lg shadow-lg text-center">
+          <div className="p-6 bg-white rounded-lg shadow-lg text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
             <div className="w-16 h-16 mx-auto bg-orange-100 text-orange-600 rounded-full flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="p-6 bg-white rounded-lg shadow-lg text-center">
+          <div className="p-6 bg-white rounded-lg shadow-lg text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
             <div className="w-16 h-16 mx-auto bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

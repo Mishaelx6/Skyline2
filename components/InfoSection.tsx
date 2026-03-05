@@ -52,10 +52,22 @@ export default function InfoSection() {
         </div>
 
         {/* second block */}
-        <div className="md:flex md:items-center md:gap-12">
+        <div className="md:flex md:items-center md:gap-12 relative">
+          {/* decorative shapes */}
+          <span className="hidden md:block absolute -top-10 -left-10 w-24 h-24 bg-orange-100 rounded-full -z-10" />
+          <span className="hidden md:block absolute -bottom-10 -right-10 w-32 h-32 bg-blue-100 rounded-xl -z-10" />
+
           <div className="md:w-1/2">
             <h3 className="text-2xl font-semibold text-gray-800">
-              Everything you can do in a physical classroom, you can do with Skilline
+              <span className="inline-block">
+                <span className="relative inline-block">
+                  <span className="absolute -left-2 -top-2 w-8 h-8 bg-orange-500 rounded-full animate-pulse" />
+                  <span className="relative z-10">Ev</span>
+                </span>
+                erything
+              </span>{' '}
+              you can do in a physical classroom,{' '}
+              <span className="text-orange-500">you can do with Skilline</span>
             </h3>
             <p className="mt-4 text-gray-600">
               Skilline’s school management software helps traditional and online
@@ -69,18 +81,45 @@ export default function InfoSection() {
               Learn more
             </a>
           </div>
-          <div className="mt-8 md:mt-0 md:w-1/2 relative">
-            {/* YouTube embed - replace videoId with the ID of your video */}
-            <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                className="w-full h-full"
-                src="https://youtu.be/b4ba60j_4o8?si=daqbD-05gAQox_yJ"
-                title="YouTube video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+          <div className="mt-8 md:mt-0 md:w-1/2 relative overflow-visible">
+          <div className="mt-12 md:mt-0 md:w-1/2 relative px-6">
+  {/* Container for the video card and shapes */}
+  <div className="relative inline-block w-full">
+    
+    {/* Decorative Blue Shape */}
+    <span className="absolute -top-6 -left-6 w-32 h-32 bg-[#22d3ee] rounded-3xl -z-10" />
+    
+    {/* Decorative Orange Shape */}
+    <span className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#fbbf24] rounded-3xl -z-10" />
+
+    {/* Video Card Container */}
+    <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl relative z-10 bg-gray-200">
+      <iframe
+        className="w-full h-full"
+        src="https://www.youtube.com/embed/b4ba60j_4o8"
+        title="Next.js 15 Tutorial"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+      
+      {/* Custom Play Button Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="bg-white/90 rounded-full p-6 shadow-lg">
+          <svg
+            className="w-10 h-10 text-blue-500 ml-1"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+          
           </div>
         </div>
       </div>
