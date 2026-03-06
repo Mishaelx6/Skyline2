@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export default function ExtraFeatures() {
   return (
     <section className="py-20 bg-gray-50">

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export default function InfoSection() {
   return (
     <section className="py-20 bg-gray-50">

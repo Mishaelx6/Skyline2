@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export default function Integrations() {
   return (
     <section className="py-20 bg-white">

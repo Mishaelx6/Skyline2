@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState } from "react";
 
@@ -62,7 +63,7 @@ export default function Testimonial() {
             className="w-130 rounded-lg shadow-2xl"
           />
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-5/6 bg-white rounded-3xl shadow-2xl p-6">
-            <p className="text-gray-700 italic">"{item.quote}"</p>
+            <p className="text-gray-700 italic">&quot;{item.quote}&quot;</p>
             <div className="mt-4 flex items-center justify-between">
               <div>
                 <p className="font-semibold text-gray-900">{item.author}</p>

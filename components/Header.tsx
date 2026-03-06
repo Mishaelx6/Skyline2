@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "./Navbar";
 
 export default function Header() {
@@ -28,12 +29,12 @@ export default function Header() {
           Skilline is an interesting platform that will teach you in more an interactive way
         </p>
         <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row md:justify-start">
-          <a
+          <Link
             href="/signup"
             className="rounded-full bg-orange-500 px-8 py-3 text-base font-semibold hover:bg-orange-600 transition"
           >
             Join for free
-          </a>
+          </Link>
           <a
             href="#"
             className="flex items-center gap-2 rounded-full border border-white px-8 py-3 text-base hover:bg-white/20 transition"

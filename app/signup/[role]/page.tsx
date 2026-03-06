@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Props {
   params: {
@@ -10,9 +11,10 @@ interface Props {
 }
 
 export default function SignupRolePage({ params }: Props) {
-  // params is a promise in client components per Next.js rules; unwrap with React.use
-  // React.use returns unknown so cast its result before destructuring
-  const { role } = (React.use(params as any) as { role: string });
+  // params arrive as a promise in client components – unwrap with React.use
+  // params are typed as any internally; disable lint to keep code clean
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { role } = React.use<{ role: string }>(params as any);
   const router = useRouter();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
 
@@ -28,13 +30,21 @@ export default function SignupRolePage({ params }: Props) {
     e.preventDefault();
     // TODO: send to API
     console.log("signing up", role, form);
-    router.push("/");
+    // after signup redirect to the new portal screen
+    router.push(`/portal/${role}`);
   };
 
   return (
     <main className="min-h-screen flex">
+      {/* site logo */}
+      <div className="absolute top-6 left-6 z-10">
+        <Link href="/" className="text-2xl font-bold text-white">
+          Skilline
+        </Link>
+      </div>
+
       {/* left panel with gradient and decorative bubbles */}
-      <div className="hidden lg:flex flex-1 relative overflow-hidden flex-col justify-center items-center bg-gradient-to-br from-indigo-600 to-indigo-400 text-white p-12">
+      <div className="hidden lg:flex flex-1 h-screen relative overflow-hidden flex-col justify-center items-center bg-gradient-to-br from-indigo-600 to-indigo-400 text-white p-12">
         {/* bubble decorations */}
         <div className="absolute top-10 left-10 w-40 h-40 bg-indigo-500 rounded-full opacity-40 mix-blend-multiply animate-pulse" />
         <div className="absolute bottom-20 right-20 w-56 h-56 bg-indigo-700 rounded-full opacity-30 mix-blend-multiply" />
@@ -51,7 +61,7 @@ export default function SignupRolePage({ params }: Props) {
       </div>
 
       {/* right panel (form) with subtle bubble highlight */}
-      <div className="flex-1 flex items-center justify-center p-6 relative">
+      <div className="flex-1 flex items-center justify-center p-2 relative">
         {/* small bubbles behind form */}
         <div className="absolute -top-10 -left-10 w-24 h-24 bg-orange-200 rounded-full opacity-20" />
         <div className="absolute bottom-8 right-8 w-32 h-32 bg-orange-300 rounded-full opacity-15" />
@@ -113,6 +123,12 @@ export default function SignupRolePage({ params }: Props) {
           >
             Create account
           </button>
+          <p className="mt-4 text-center text-sm">
+            Already have an account?{' '}
+            <Link href="/login" className="text-orange-500 hover:underline">
+              Log in
+            </Link>
+          </p>
         </form>
       </div>
     </main>

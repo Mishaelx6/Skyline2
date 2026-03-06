@@ -3,8 +3,15 @@ import Link from "next/link";
 export default function SignupPage() {
   return (
     <main className="min-h-screen flex">
+      {/* site logo (visible on all screen sizes) */}
+      <div className="absolute top-6 left-6 z-10">
+        <Link href="/" className="text-2xl font-bold text-white">
+          Skilline
+        </Link>
+      </div>
+
       {/* left panel with gradient + bubbles */}
-      <div className="hidden lg:flex flex-1 relative overflow-hidden flex-col justify-center items-center bg-gradient-to-br from-indigo-600 to-indigo-400 text-white p-12">
+      <div className="hidden lg:flex flex-1 h-screen relative overflow-hidden flex-col justify-center items-center bg-gradient-to-br from-indigo-600 to-indigo-400 text-white p-12">
         <div className="absolute top-12 left-16 w-40 h-40 bg-indigo-500 rounded-full opacity-35 mix-blend-multiply animate-pulse" />
         <div className="absolute bottom-20 right-24 w-56 h-56 bg-indigo-700 rounded-full opacity-30 mix-blend-multiply" />
         <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-indigo-400 rounded-full opacity-45 mix-blend-multiply" />
@@ -34,6 +41,12 @@ export default function SignupPage() {
             Instructor
           </Link>
         </div>
+        <p className="mt-6 text-sm">
+          Already have an account?{' '}
+          <Link href="/login" className="text-orange-500 hover:underline">
+            Log in
+          </Link>
+        </p>
       </div>
     </main>
   );
