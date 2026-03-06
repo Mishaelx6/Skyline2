@@ -53,13 +53,13 @@ export default function SignupRolePage({ params }: Props) {
       {/* right panel (form) with subtle bubble highlight */}
       <div className="flex-1 flex items-center justify-center p-6 relative">
         {/* small bubbles behind form */}
-        <div className="absolute -top-10 -left-10 w-24 h-24 bg-teal-200 rounded-full opacity-20" />
-        <div className="absolute bottom-8 right-8 w-32 h-32 bg-teal-300 rounded-full opacity-15" />
+        <div className="absolute -top-10 -left-10 w-24 h-24 bg-orange-200 rounded-full opacity-20" />
+        <div className="absolute bottom-8 right-8 w-32 h-32 bg-orange-300 rounded-full opacity-15" />
         {/* extra form bubbles */}
-        <div className="absolute top-0 right-24 w-20 h-20 bg-teal-100 rounded-full opacity-10" />
-        <div className="absolute bottom-16 left-16 w-28 h-28 bg-teal-200 rounded-full opacity-12" />
-        <div className="absolute top-12 left-1/2 w-16 h-16 bg-teal-300 rounded-full opacity-08" />
-        <div className="absolute bottom-4 right-40 w-22 h-22 bg-teal-150 rounded-full opacity-18" />
+        <div className="absolute top-0 right-24 w-20 h-20 bg-orange-100 rounded-full opacity-10" />
+        <div className="absolute bottom-16 left-16 w-28 h-28 bg-orange-200 rounded-full opacity-12" />
+        <div className="absolute top-12 left-1/2 w-16 h-16 bg-orange-300 rounded-full opacity-08" />
+        <div className="absolute bottom-4 right-40 w-22 h-22 bg-orange-150 rounded-full opacity-18" />
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md space-y-5 bg-white p-8 rounded-lg shadow-lg relative"
@@ -109,7 +109,7 @@ export default function SignupRolePage({ params }: Props) {
           </div>
           <button
             type="submit"
-            className="w-full rounded bg-teal-500 py-2 text-white hover:bg-teal-600 transition"
+            className="w-full rounded bg-orange-500 py-2 text-white hover:bg-orange-600 transition"
           >
             Create account
           </button>

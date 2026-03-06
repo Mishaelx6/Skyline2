@@ -23,13 +23,13 @@ export default function SignupPage() {
         <div className="flex space-x-4">
           <Link
             href="/signup/student"
-            className="rounded bg-teal-500 px-6 py-3 text-white hover:bg-teal-600"
+            className="rounded bg-orange-500 px-6 py-3 text-white hover:bg-orange-600"
           >
             Student
           </Link>
           <Link
             href="/signup/instructor"
-            className="rounded bg-teal-500 px-6 py-3 text-white hover:bg-teal-600"
+            className="rounded bg-orange-500 px-6 py-3 text-white hover:bg-orange-600"
           >
             Instructor
           </Link>

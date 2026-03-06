@@ -17,19 +17,19 @@ export default function LoginPage() {
       {/* right panel */}
       <div className="flex-1 flex flex-col items-center justify-center p-6 relative">
         {/* bubbles around buttons */}
-        <div className="absolute -top-10 -right-10 w-20 h-20 bg-teal-200 rounded-full opacity-15" />
-        <div className="absolute bottom-10 left-10 w-24 h-24 bg-teal-300 rounded-full opacity-10" />
+        <div className="absolute -top-10 -right-10 w-20 h-20 bg-orange-200 rounded-full opacity-15" />
+        <div className="absolute bottom-10 left-10 w-24 h-24 bg-orange-300 rounded-full opacity-10" />
         <h1 className="mb-8 text-4xl font-bold">Login as</h1>
         <div className="flex space-x-4">
           <Link
             href="/login/student"
-            className="rounded bg-teal-500 px-6 py-3 text-white hover:bg-teal-600"
+            className="rounded bg-orange-500 px-6 py-3 text-white hover:bg-orange-600"
           >
             Student
           </Link>
           <Link
             href="/login/instructor"
-            className="rounded bg-teal-500 px-6 py-3 text-white hover:bg-teal-600"
+            className="rounded bg-orange-500 px-6 py-3 text-white hover:bg-orange-600"
           >
             Instructor
           </Link>
