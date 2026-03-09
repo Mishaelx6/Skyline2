@@ -1,9 +1,10 @@
 import NextAuth from "next-auth";
+import type { AuthOptions, JWT, Account, User, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import { verifyPassword, findUserByEmail, createUser } from "../../../../lib/users";
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -30,7 +31,8 @@ export const authOptions = {
   ],
   session: { strategy: "jwt" },
   callbacks: {
-    async jwt({ token, user, account }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async jwt({ token, user, account }: any) {
       if (user) {
         token.id = user.id;
         if ((user as any).role) {
@@ -49,7 +51,8 @@ export const authOptions = {
       return token;
     },
 
-    async session({ session, token }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async session({ session, token }: any) {
       if (token && session.user) {
         session.user.id = token.id as string;
         if (token.role) {
