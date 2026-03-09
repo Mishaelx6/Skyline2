@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createUser, findUserByEmail } from "../../../lib/users";
+import { createUser, findUserByEmail } from "../../../../lib/users";
 
 export async function POST(req: NextRequest) {
   const { name, email, password, role } = await req.json();
