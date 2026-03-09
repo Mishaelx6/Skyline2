@@ -19,7 +19,7 @@ export default function ExtraFeatures() {
             <img
               src="/images/image3.PNG"
               alt="User interface designed for the classroom"
-              className="w-120 rounded-lg shadow-2xl"
+              className="w-full max-w-sm lg:max-w-none rounded-lg shadow-2xl"
             />
             <span className="absolute -top-8 right-0 w-24 h-24 bg-blue-200 rounded-full -z-10" />
             <span className="absolute -bottom-8 left-0 w-20 h-20 bg-green-200 rounded-full -z-10" />
@@ -59,7 +59,7 @@ export default function ExtraFeatures() {
             <img
               src="/images/image5.PNG"
               alt="Tools for teachers and learners"
-              className="w-130 rounded-lg shadow-2xl"
+              className="w-full max-w-sm lg:max-w-none rounded-lg shadow-2xl"
             />
             <span className="absolute -top-6 -right-6 w-20 h-20 bg-purple-200 rounded-full -z-10" />
           </div>
@@ -71,7 +71,7 @@ export default function ExtraFeatures() {
             <img
               src="/images/image6.PNG"
               alt="Assessments, Quizzes, Tests"
-              className="w-120 rounded-lg shadow-2xl"
+              className="w-full max-w-sm lg:max-w-none rounded-lg shadow-2xl"
             />
             <span className="absolute -bottom-6 left-0 w-20 h-20 bg-yellow-200 rounded-full -z-10" />
           </div>
@@ -99,7 +99,7 @@ export default function ExtraFeatures() {
             <img
               src="/images/image7.PNG"
               alt="Class management tools"
-              className="w-100 rounded-lg shadow-2xl"
+              className="w-full max-w-sm lg:max-w-none rounded-lg shadow-2xl"
             />
             <span className="absolute -top-6 -left-6 w-20 h-20 bg-green-200 rounded-full -z-10" />
           </div>
@@ -111,7 +111,7 @@ export default function ExtraFeatures() {
             <img
               src="/images/image8.PNG"
               alt="One-on-One Discussions"
-              className="w-120 rounded-lg shadow-2xl"
+              className="w-full max-w-sm lg:max-w-none rounded-lg shadow-2xl"
             />
             <span className="absolute -bottom-6 right-0 w-20 h-20 bg-blue-200 rounded-full -z-10" />
           </div>

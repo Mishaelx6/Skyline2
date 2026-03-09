@@ -60,7 +60,8 @@ export default function Testimonial() {
           <img
             src={item.image}
             alt={item.author}
-            className="w-130 rounded-lg shadow-2xl"
+            // use full width on small screens and constrain on larger ones
+            className="w-full max-w-sm lg:max-w-none rounded-lg shadow-2xl"
           />
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-5/6 bg-white rounded-3xl shadow-2xl p-6">
             <p className="text-gray-700 italic">&quot;{item.quote}&quot;</p>
