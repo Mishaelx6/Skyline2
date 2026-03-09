@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 interface Props {
   params: {
@@ -26,11 +27,19 @@ export default function LoginRolePage({ params }: Props) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: send to API
-    console.log("logging in", role, form);
-    // temporary placeholder flow: go to the appropriate portal
+    // use NextAuth's signIn helper
+    const res = await signIn('credentials', {
+      redirect: false,
+      email: form.email,
+      password: form.password,
+    });
+    if (res?.error) {
+      alert('Invalid credentials');
+      return;
+    }
+    // on success, navigate to portal
     router.push(`/portal/${role}`);
   };
 
@@ -68,6 +77,12 @@ export default function LoginRolePage({ params }: Props) {
         <div className="absolute bottom-20 right-20 w-28 h-28 bg-orange-200 rounded-full opacity-12" />
         <div className="absolute top-16 right-1/3 w-18 h-18 bg-orange-300 rounded-full opacity-08" />
         <div className="absolute bottom-8 left-36 w-22 h-22 bg-orange-150 rounded-full opacity-18" />
+        <button
+          onClick={() => signIn('google', { callbackUrl: `/portal/${role}` })}
+          className="mb-6 w-full rounded bg-white py-2 text-indigo-600 hover:bg-gray-100 transition"
+        >
+          Continue with Google
+        </button>
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md space-y-5 bg-white p-8 rounded-lg shadow-lg relative"

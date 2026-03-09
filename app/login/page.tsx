@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   return (
@@ -40,6 +41,14 @@ export default function LoginPage() {
           >
             Instructor
           </Link>
+        </div>
+        <div className="mt-8">
+          <button
+            onClick={() => signIn('google')}
+            className="rounded bg-white px-6 py-3 text-indigo-600 hover:bg-gray-100 transition"
+          >
+            Continue with Google
+          </button>
         </div>
         <p className="mt-6 text-sm">
           Don’t have an account?{' '}

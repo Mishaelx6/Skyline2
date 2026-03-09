@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Authentication Setup
+
+This project uses [NextAuth](https://next-auth.js.org/) for authentication. To get it running locally:
+
+1. Install the required packages (`next-auth`, `bcrypt`).
+2. Create a `.env.local` file with the following values:
+   ```
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=your-secret-here
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   ```
+3. Start the development server and try signing up or logging in via the UI.  User accounts are stored in memory for now.
+
+Server‑side logic lives under `app/api/auth` and can be extended to use a database or adapter later.  This README and the `docs/PROJECT_OVERVIEW.md` are kept in sync with feature progress.

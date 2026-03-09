@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SignOutButton from "../../../components/SignOutButton";
 
 interface Props {
   params: {
@@ -6,7 +7,18 @@ interface Props {
   };
 }
 
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+
 export default async function PortalPage({ params }: Props) {
+  // enforce auth
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    // not logged in -> send to login page
+    redirect('/login');
+  }
+
   // params comes in as a promise in some Next.js versions/environments
   const { role } = await params;
   const isStudent = role === "student";
@@ -14,6 +26,11 @@ export default async function PortalPage({ params }: Props) {
 
   if (!isStudent && !isInstructor) {
     return <p className="p-6">Invalid portal</p>;
+  }
+
+  // if user's role doesn't match the URL, redirect them
+  if (session?.user?.role && session.user.role !== role) {
+    redirect(`/portal/${session.user.role}`);
   }
 
   return (
@@ -53,12 +70,7 @@ export default async function PortalPage({ params }: Props) {
             )}
             {/* logout link always present at bottom of sidebar */}
             <div className="mt-6 pt-4 border-t border-indigo-500">
-              <Link
-                href="/login"
-                className="block rounded px-3 py-2 hover:bg-indigo-500"
-              >
-                Log out
-              </Link>
+              <SignOutButton />
             </div>
           </nav>
         </div>
@@ -97,9 +109,7 @@ export default async function PortalPage({ params }: Props) {
           )}
         </div>
         <div className="mt-12">
-          <Link href="/login" className="rounded bg-orange-500 px-6 py-3 text-white hover:bg-orange-600 transition">
-            Log out
-          </Link>
+          <SignOutButton />
         </div>
       </section>
     </main>

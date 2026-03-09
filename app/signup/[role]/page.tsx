@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 interface Props {
   params: {
@@ -26,12 +27,34 @@ export default function SignupRolePage({ params }: Props) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: send to API
-    console.log("signing up", role, form);
-    // after signup redirect to the new portal screen
-    router.push(`/portal/${role}`);
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, role }),
+      });
+      if (!res.ok) {
+        const body = await res.json();
+        alert(body.error || 'Failed to sign up');
+        return;
+      }
+      // automatically sign the user in after successful registration
+      const signInRes = await signIn('credentials', {
+        redirect: false,
+        email: form.email,
+        password: form.password,
+      });
+      if (signInRes?.ok) {
+        router.push(`/portal/${role}`);
+      } else {
+        alert('Signup succeeded but login failed');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred');
+    }
   };
 
   return (
@@ -70,6 +93,12 @@ export default function SignupRolePage({ params }: Props) {
         <div className="absolute bottom-16 left-16 w-28 h-28 bg-orange-200 rounded-full opacity-12" />
         <div className="absolute top-12 left-1/2 w-16 h-16 bg-orange-300 rounded-full opacity-08" />
         <div className="absolute bottom-4 right-40 w-22 h-22 bg-orange-150 rounded-full opacity-18" />
+        <button
+          onClick={() => signIn('google', { callbackUrl: `/portal/${role}` })}
+          className="mb-6 w-full rounded bg-white py-2 text-indigo-600 hover:bg-gray-100 transition"
+        >
+          Continue with Google
+        </button>
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md space-y-5 bg-white p-8 rounded-lg shadow-lg relative"
