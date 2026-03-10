@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import GoogleSignInButton from "../../../components/GoogleSignInButton";
 
 interface Props {
   params: {
@@ -93,16 +94,19 @@ export default function SignupRolePage({ params }: Props) {
         <div className="absolute bottom-16 left-16 w-28 h-28 bg-orange-200 rounded-full opacity-12" />
         <div className="absolute top-12 left-1/2 w-16 h-16 bg-orange-300 rounded-full opacity-08" />
         <div className="absolute bottom-4 right-40 w-22 h-22 bg-orange-150 rounded-full opacity-18" />
-        <button
-          onClick={() => signIn('google', { callbackUrl: `/portal/${role}` })}
-          className="mb-6 w-full rounded bg-white py-2 text-indigo-600 hover:bg-gray-100 transition"
-        >
-          Continue with Google
-        </button>
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md space-y-5 bg-white p-8 rounded-lg shadow-lg relative"
         >
+          <GoogleSignInButton callbackUrl={`/portal/${role}`} />
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200" />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="bg-white px-2 text-gray-500">or</span>
+            </div>
+          </div>
           <h2 className="text-2xl font-bold capitalize">{role} sign up</h2>
           <div>
             <label htmlFor="name" className="block font-medium">
